@@ -1,8 +1,4 @@
 # TODO
-#  - maybe the -vim subpackage isn't needed, but how then you can guarantee
-#    existing parent dirs?
-#  - txt2tags-vim or vim-txt2tags?
-#  - package more extra/'s? (kate already has txt2tags!)
 #  - lock vim version require to same vim major version detected at compile time somehow. (6.3 today)
 
 Summary:	Tool to convert and to format texts
@@ -10,7 +6,7 @@ Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
 Summary(pt_BR):	Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	2.1
-Release:	1.4
+Release:	1.5
 License:	GPL
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
@@ -67,7 +63,8 @@ txt2tags e ele converte para qualquer um desses formatos:
 Summary:	Vim - syntax
 Summary(pl):	Sk³adnia dla Vima
 Group:		Applications/Editors/Vim
-Requires:	vim >= %{vimep}:%{vimver}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	vim-rt >= %{vimep}:%{vimver}
 Requires:	%{_vimdatadir}
 
 %description vim
