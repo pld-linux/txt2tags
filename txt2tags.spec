@@ -1,6 +1,3 @@
-# TODO
-#  - lock vim version require to same vim major version detected at compile time somehow. (6.3 today)
-
 Summary:	Tool to convert and to format texts
 Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
 Summary(pt_BR):	Ferramenta para converter e formatar textos
