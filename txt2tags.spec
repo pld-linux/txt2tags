@@ -12,7 +12,6 @@ Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
 # Source0-md5:	05a0ddcd76aaca72584a12520c764034
 URL:		http://txt2tags.sourceforge.net/
-BuildRequires:	bc
 BuildRequires:	vim-rt
 Requires:	python
 Requires:	python-modules
