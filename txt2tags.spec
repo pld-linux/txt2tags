@@ -4,7 +4,7 @@ Release:	1
 License:	GPL
 Summary:	Tool to convert and to format texts.
 Summary(pt_BR):	Ferramenta para converter e formatar textos.
-Group:		Application/Text
+Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
 # Source0-md5:	bbee7b77dfff87e1666eb7071d7d0281
 URL:		http://txt2tags.sourceforge.net
