@@ -1,14 +1,14 @@
+Summary:	Tool to convert and to format texts
+Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
+Summary(pt_BR):	Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	1.7
 Release:	1
 License:	GPL
-Summary:	Tool to convert and to format texts
-Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
-Summary(pt_BR):	Ferramenta para converter e formatar textos
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
 # Source0-md5:	bbee7b77dfff87e1666eb7071d7d0281
-URL:		http://txt2tags.sourceforge.net
+URL:		http://txt2tags.sourceforge.net/
 Requires:	python
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,12 +26,12 @@ converts for any one of these formats:
 - a PageMaker 6.0 document
 
 %description -l pl
-txt2tags jest narzêdziem s³u¿±cym do konwertowania oraz do formatowania tekstów.
-Potrafi konwertowaæ ka¿dy z poni¿szych formatów:
+txt2tags jest narzêdziem s³u¿±cym do konwertowania oraz do
+formatowania tekstów. Potrafi konwertowaæ ka¿dy z poni¿szych formatów:
 - dokument HTML
 - dokument SGML
 - dokument Latex
-- stronê podtêcznika UNIX (manpages)
+- stronê podrêcznika UNIX (manpage)
 - stronê MoinMoin
 - prezentacjê Magic Point
 - dokument PageMakera 6.0
@@ -49,7 +49,6 @@ txt2tags e ele converte para qualquer um desses formatos:
 - um documento do PageMaker 6.0
 
 %prep
-
 %setup -q
 
 %install
@@ -57,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install %{name}.man $RPM_BUILD_ROOT/%{_mandir}/man1/%{name}.1
+install %{name}.man $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
