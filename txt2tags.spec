@@ -16,15 +16,17 @@ Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
 # Source0-md5:	05a0ddcd76aaca72584a12520c764034
 URL:		http://txt2tags.sourceforge.net/
-BuildRequires:	vim
+BuildRequires:	bc
+BuildRequires:	vim-rt
 Requires:	python
 Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define     vimver		%(rpm -q vim --qf '%{VERSION}' | cut -d. -f1,2)
-%define     vimshv      %(echo %{vimver} | tr -d .)
-%define     _vimdatadir %{_datadir}/vim/vim%{vimshv}
+%define		vimep		%(rpm -q vim-rt --qf '%{EPOCH}')
+%define		vimver		%(rpm -q vim-rt --qf '%{VERSION}' | cut -d. -f1,2)
+%define		vimshv		%(echo %{vimver} | tr -d .)
+%define		_vimdatadir	%{_datadir}/vim/vim%{vimshv}
 
 %description
 txt2tags is a tool to convert and to format texts. It functions thus:
@@ -63,9 +65,10 @@ txt2tags e ele converte para qualquer um desses formatos:
 
 %package vim
 Summary:	Vim - syntax
+Summary(pl):	Sk³adnia dla Vima
 Group:		Applications/Editors/Vim
-# I just need directory /usr/share/vim/vim63, so this will fail for vim 6.4
-Requires:	vim >= %{vimver}
+Requires:	vim >= %{vimep}:%{vimver}
+Requires:	%{_vimdatadir}
 
 %description vim
 Vim syntax file and menu for gvim.
