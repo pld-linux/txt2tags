@@ -10,6 +10,7 @@ Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
 # Source0-md5:	05a0ddcd76aaca72584a12520c764034
 URL:		http://txt2tags.sourceforge.net/
 Requires:	python
+Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
