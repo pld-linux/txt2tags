@@ -6,7 +6,7 @@ Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
 Summary(pt_BR):	Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	2.1
-Release:	1.5
+Release:	1.8
 License:	GPL
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
@@ -83,7 +83,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install doc/manpage.man $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
 
-install -d $RPM_BUILD_ROOT%{_vimdatadir}/{syntax,plugin}
+install -d $RPM_BUILD_ROOT%{_vimdatadir}/{syntax,plugin,ftplugin}
 install extras/txt2tags.vim $RPM_BUILD_ROOT%{_vimdatadir}/syntax
 
 cat > $RPM_BUILD_ROOT%{_vimdatadir}/plugin/%{name}.vim <<-EOF
@@ -92,7 +92,7 @@ au BufNewFile,BufRead *.t2t                 setf txt2tags
 EOF
 #" - for vim
 
-install extras/txt2tags-compiler.vim $RPM_BUILD_ROOT%{_vimdatadir}/plugin
+install extras/txt2tags-compiler.vim $RPM_BUILD_ROOT%{_vimdatadir}/ftplugin/%{name}.vim
 install extras/gvim-menu.vim $RPM_BUILD_ROOT%{_vimdatadir}/plugin/%{name}-menu.vim
 
 %clean
@@ -108,3 +108,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_vimdatadir}/syntax/*
 %{_vimdatadir}/plugin/*
+%{_vimdatadir}/ftplugin/*
