@@ -3,7 +3,7 @@ Version:	1.7
 Release:	1
 License:	GPL
 Summary:	Tool to convert and to format texts
-Summary(pl):	Narzêdzie do konwertacji i formatowania tekstu
+Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
 Summary(pt_BR):	Ferramenta para converter e formatar textos
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
@@ -26,8 +26,8 @@ converts for any one of these formats:
 - a PageMaker 6.0 document
 
 %description -l pl
-txt2tags jest narzêdziem s³u¿acym do konwertacji oraz do formatowania textów.
-Potrafi konwertowaæ ka¿dy z tych formatów:
+txt2tags jest narzêdziem s³u¿±cym do konwertowania oraz do formatowania tekstów.
+Potrafi konwertowaæ ka¿dy z poni¿szych formatów:
 - dokument HTML
 - dokument SGML
 - dokument Latex
