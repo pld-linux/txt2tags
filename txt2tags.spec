@@ -2,12 +2,12 @@ Summary:	Tool to convert and to format texts
 Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
 Summary(pt_BR):	Ferramenta para converter e formatar textos
 Name:		txt2tags
-Version:	1.7
+Version:	2.0
 Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
-# Source0-md5:	bbee7b77dfff87e1666eb7071d7d0281
+# Source0-md5:	694808c56604bed9ea7b0c1d873a5ed8
 URL:		http://txt2tags.sourceforge.net/
 Requires:	python
 BuildArch:	noarch
@@ -56,13 +56,13 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install %{name}.man $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
+install doc/manpage.man $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc contrib extras samples userguide ChangeLog.txt README* RULES
+%doc extras samples doc/userguide ChangeLog README* TEAM TODO 
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man?/*
+%{_mandir}/man1/*
