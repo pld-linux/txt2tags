@@ -1,24 +1,21 @@
+
+%define		_vimdatadir	%{_datadir}/vim/vimfiles
+
 Summary:	Tool to convert and to format texts
 Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
 Summary(pt_BR):	Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	2.2
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
 # Source0-md5:	b50157fa0f532585739d79e3affd6588
 URL:		http://txt2tags.sourceforge.net/
-BuildRequires:	vim-rt
 Requires:	python
 Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		vimep		%(rpm -q vim-rt --qf '%{EPOCH}')
-%define		vimver		%(rpm -q vim-rt --qf '%{VERSION}' | cut -d. -f1,2)
-%define		vimshv		%(echo %{vimver} | tr -d .)
-%define		_vimdatadir	%{_datadir}/vim/vim%{vimshv}
 
 %description
 txt2tags is a tool to convert and to format texts. It functions thus:
@@ -60,8 +57,8 @@ Summary:	Vim - syntax
 Summary(pl):	Sk³adnia dla Vima
 Group:		Applications/Editors/Vim
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	vim-rt >= %{vimep}:%{vimver}
 Requires:	%{_vimdatadir}
+Requires:	vim >= 4:6.3.058-3
 
 %description vim
 Vim syntax file and menu for gvim.
