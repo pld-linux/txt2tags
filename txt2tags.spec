@@ -1,18 +1,30 @@
+# TODO
+#  - maybe the -vim subpackage isn't needed, but how then you can guarantee
+#    existing parent dirs?
+#  - txt2tags-vim or vim-txt2tags?
+#  - package more extra/'s? (kate already has txt2tags!)
+#  - lock vim version require to same vim major version detected at compile time somehow. (6.3 today)
+
 Summary:	Tool to convert and to format texts
 Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
 Summary(pt_BR):	Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	2.1
-Release:	1
+Release:	1.4
 License:	GPL
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
 # Source0-md5:	05a0ddcd76aaca72584a12520c764034
 URL:		http://txt2tags.sourceforge.net/
+BuildRequires:	vim
 Requires:	python
 Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define     vimver		%(rpm -q vim --qf '%{VERSION}' | cut -d. -f1,2)
+%define     vimshv      %(echo %{vimver} | tr -d .)
+%define     _vimdatadir %{_datadir}/vim/vim%{vimshv}
 
 %description
 txt2tags is a tool to convert and to format texts. It functions thus:
@@ -49,6 +61,19 @@ txt2tags e ele converte para qualquer um desses formatos:
 - uma apresentação do Magic Point
 - um documento do PageMaker 6.0
 
+%package vim
+Summary:	Vim - syntax
+Group:		Applications/Editors/Vim
+# I just need directory /usr/share/vim/vim63, so this will fail for vim 6.4
+Requires:	vim >= %{vimver}
+
+%description vim
+Vim syntax file and menu for gvim.
+
+Also includes vim script to ':make' and build txt2tags target inside vim.
+The hotkeys are <F5> for make, <F4> for displaying output and <F3> for discarding
+output.
+
 %prep
 %setup -q
 
@@ -59,11 +84,28 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install doc/manpage.man $RPM_BUILD_ROOT%{_mandir}/man1/%{name}.1
 
+install -d $RPM_BUILD_ROOT%{_vimdatadir}/{syntax,plugin}
+install extras/txt2tags.vim $RPM_BUILD_ROOT%{_vimdatadir}/syntax
+
+cat > $RPM_BUILD_ROOT%{_vimdatadir}/plugin/%{name}.vim <<-EOF
+" txt2tags file
+au BufNewFile,BufRead *.t2t                 setf txt2tags
+EOF
+#" - for vim
+
+install extras/txt2tags-compiler.vim $RPM_BUILD_ROOT%{_vimdatadir}/plugin
+install extras/gvim-menu.vim $RPM_BUILD_ROOT%{_vimdatadir}/plugin/%{name}-menu.vim
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc extras samples doc/userguide.pdf ChangeLog README* TEAM TODO 
+%doc extras samples doc/userguide.pdf ChangeLog README* TEAM TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
+
+%files vim
+%defattr(644,root,root,755)
+%{_vimdatadir}/syntax/*
+%{_vimdatadir}/plugin/*
