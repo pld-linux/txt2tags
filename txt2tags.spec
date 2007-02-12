@@ -2,8 +2,8 @@
 %define		_vimdatadir	%{_datadir}/vim/vimfiles
 
 Summary:	Tool to convert and to format texts
-Summary(pl):	Narzêdzie do konwertowania i formatowania tekstu
-Summary(pt_BR):	Ferramenta para converter e formatar textos
+Summary(pl.UTF-8):   NarzÄ™dzie do konwertowania i formatowania tekstu
+Summary(pt_BR.UTF-8):   Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	2.3
 Release:	1
@@ -29,32 +29,32 @@ converts for any one of these formats:
 - a presentation of the Magic Point
 - a PageMaker 6.0 document
 
-%description -l pl
-txt2tags jest narzêdziem s³u¿±cym do konwertowania oraz do
-formatowania tekstów. Potrafi konwertowaæ ka¿dy z poni¿szych formatów:
+%description -l pl.UTF-8
+txt2tags jest narzÄ™dziem sÅ‚uÅ¼Ä…cym do konwertowania oraz do
+formatowania tekstÃ³w. Potrafi konwertowaÄ‡ kaÅ¼dy z poniÅ¼szych formatÃ³w:
 - dokument HTML
 - dokument SGML
 - dokument Latex
-- stronê podrêcznika UNIX (manpage)
-- stronê MoinMoin
-- prezentacjê Magic Point
+- stronÄ™ podrÄ™cznika UNIX (manpage)
+- stronÄ™ MoinMoin
+- prezentacjÄ™ Magic Point
 - dokument PageMakera 6.0
 
-%description -l pt_BR
-txt2tags é uma ferramenta para converter e formatar textos. Funciona
-assim: você fornece um texto com umas marquinhas simples para o
+%description -l pt_BR.UTF-8
+txt2tags Ã© uma ferramenta para converter e formatar textos. Funciona
+assim: vocÃª fornece um texto com umas marquinhas simples para o
 txt2tags e ele converte para qualquer um desses formatos:
 - um documento HTML
 - um documento SGML
 - um documento LaTeX
-- uma página de manual UNIX (manpage)
-- uma página do MoinMoin
-- uma apresentação do Magic Point
+- uma pÃ¡gina de manual UNIX (manpage)
+- uma pÃ¡gina do MoinMoin
+- uma apresentaÃ§Ã£o do Magic Point
 - um documento do PageMaker 6.0
 
 %package vim
 Summary:	Vim - syntax
-Summary(pl):	Sk³adnia dla Vima
+Summary(pl.UTF-8):   SkÅ‚adnia dla Vima
 Group:		Applications/Editors/Vim
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	%{_vimdatadir}
