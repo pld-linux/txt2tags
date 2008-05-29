@@ -1,12 +1,11 @@
-
-%define		_vimdatadir	%{_datadir}/vim/vimfiles
-
+# TODO
+# - pl for vim
 Summary:	Tool to convert and to format texts
 Summary(pl.UTF-8):	Narzędzie do konwertowania i formatowania tekstu
 Summary(pt_BR.UTF-8):	Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	2.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
@@ -16,6 +15,8 @@ Requires:	python
 Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_vimdatadir	%{_datadir}/vim/vimfiles
 
 %description
 txt2tags is a tool to convert and to format texts. It functions thus:
@@ -52,15 +53,15 @@ txt2tags e ele converte para qualquer um desses formatos:
 - uma apresentação do Magic Point
 - um documento do PageMaker 6.0
 
-%package vim
+%package -n vim-syntax-txt2tags
 Summary:	Vim - syntax
 Summary(pl.UTF-8):	Składnia dla Vima
 Group:		Applications/Editors/Vim
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	%{_vimdatadir}
-Requires:	vim >= 4:6.3.058-3
+Requires:	vim-rt >= 4:6.3.058-3
+Obsoletes:	txt2tags-vim
 
-%description vim
+%description -n vim-syntax-txt2tags
 Vim syntax file and menu for gvim.
 
 Also includes vim script to ':make' and build txt2tags target inside vim.
@@ -98,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 
-%files vim
+%files -n vim-syntax-txt2tags
 %defattr(644,root,root,755)
 %{_vimdatadir}/syntax/*
 %{_vimdatadir}/plugin/*
