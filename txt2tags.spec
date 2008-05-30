@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	Narzędzie do konwertowania i formatowania tekstu
 Summary(pt_BR.UTF-8):	Ferramenta para converter e formatar textos
 Name:		txt2tags
 Version:	2.3
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Text
 Source0:	http://txt2tags.sourceforge.net/src/%{name}-%{version}.tgz
