@@ -59,7 +59,8 @@ Summary(pl.UTF-8):	Składnia dla Vima
 Group:		Applications/Editors/Vim
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	vim-rt >= 4:6.3.058-3
-Obsoletes:	txt2tags-vim
+Provides:	txt2tags-vim = %{epoch}:%{version}-%{release}
+Obsoletes:	txt2tags-vim < 2.3-3
 
 %description -n vim-syntax-txt2tags
 Vim syntax file and menu for gvim.
