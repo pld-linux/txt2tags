@@ -57,9 +57,9 @@ txt2tags e ele converte para qualquer um desses formatos:
 Summary:	Vim - syntax
 Summary(pl.UTF-8):	Składnia dla Vima
 Group:		Applications/Editors/Vim
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	vim-rt >= 4:6.3.058-3
-Provides:	txt2tags-vim = %{epoch}:%{version}-%{release}
+Provides:	txt2tags-vim = %{version}-%{release}
 Obsoletes:	txt2tags-vim < 2.3-3
 
 %description -n vim-syntax-txt2tags
