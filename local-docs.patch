@@ -1,0 +1,19 @@
+--- txt2tags-3.9/docs/build-docs.sh~	2023-10-06 20:07:32.000000000 +0200
++++ txt2tags-3.9/docs/build-docs.sh	2024-12-23 11:50:02.933332743 +0100
+@@ -5,13 +5,13 @@
+ cd $(dirname "$0")
+ 
+ pushd markup
+-txt2tags markup.t2t
++../../txt2tags.py markup.t2t
+ popd
+ 
+ pushd rules
+-txt2tags rules.t2t
++../../txt2tags.py rules.t2t
+ popd
+ 
+ pushd userguide
+-txt2tags userguide.t2t
++../../txt2tags.py userguide.t2t
+ popd
