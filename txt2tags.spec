@@ -11,8 +11,11 @@ Source0:	https://github.com/txt2tags/txt2tags/archive/%{version}/%{name}-%{versi
 # Source0-md5:	f0479f60e64708af9ea09a381bc8d6f8
 Patch0:		local-docs.patch
 URL:		https://txt2tags.org/
-Requires:	python3
-Requires:	python3-modules
+BuildRequires:	python3 >= 1:3.7
+BuildRequires:	python3-modules >= 1:3.7
+BuildRequires:	sed >= 4.0
+Requires:	python3 >= 1:3.7
+Requires:	python3-modules >= 1:3.7
 Obsoletes:	vim-syntax-txt2tags < 3.9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -56,21 +59,23 @@ txt2tags e ele converte para qualquer um desses formatos:
 %setup -q
 %patch -P 0 -p1
 
+%{__sed} -i -e '1s,/usr/bin/env python$,%{__python3},' txt2tags.py
+
+%build
 ./docs/build-docs.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
 
-%{__sed} -e '1s,/usr/bin/env python,%{__python3},' txt2tags.py > $RPM_BUILD_ROOT%{_bindir}/txt2tags
+install -Dp txt2tags.py $RPM_BUILD_ROOT%{_bindir}/txt2tags
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG.md README.md extras
+%doc CHANGELOG.md README.md TODO.md extras
 %doc docs/markup/markup.html
 %doc docs/rules/rules.{css,html}
-%doc docs/userguide/userguide.{css,html}
+%doc docs/userguide/userguide.{css,html} docs/userguide/*.png
 %attr(755,root,root) %{_bindir}/txt2tags
